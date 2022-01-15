@@ -130,7 +130,7 @@ jobs:
         make -j$(nproc) V=s
 
     - name : Upload artifact
-      uses: actions/upload-artifact@master
+      uses: actions/upload-artifact@main
       with:
         name: OpenWrt
         path: openwrt/bin
