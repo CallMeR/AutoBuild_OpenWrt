@@ -52,6 +52,7 @@ jobs:
           powershell \
           openjdk* \
           mysql* \
+          moby* \
           php*
         sudo -E apt -y autoremove --purge
         sudo -E apt update
