@@ -5,7 +5,9 @@
 
 Hereby thank esirplayground for his amazing job: https://github.com/esirplayground/AutoBuild-OpenWrt  
 
-说明：
+**说明：**  
 使用了官方 21.02 分支进行编译  
 默认 LAN IP 地址：10.0.0.1  
 强化了 CLI 使用的一些组件，比如 iper3 等  
+增加了 vmxnet3 的驱动支持  
+默认开启了 Qemu 的 qemu-qa，使用 ESXi 时需要手动调整
