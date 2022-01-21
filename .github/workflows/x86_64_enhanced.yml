@@ -5,7 +5,7 @@
 # Youtube Channel: https://goo.gl/fvkdwm 
 #=================================================
 
-name: x86_64_Enhanced
+name: x86_64_enhanced
 
 on: 
   release:
