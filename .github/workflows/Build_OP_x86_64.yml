@@ -69,45 +69,14 @@ jobs:
       run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
-        cp tools/Makefile ~/Makefile-$(date +%Y%m%d-%H%M).bak
-        cp feeds.conf.default ~/feeds.conf.default-$(date +%Y%m%d-%H%M).bak
-        rm -rvf package/helloworld
-        rm -rvf tools/ucl
-        rm -rvf tools/upx
-        mkdir -p package/helloworld
-        sed -i "/helloworld/d" "feeds.conf.default"
-        echo "src-git helloworld https://github.com/fw876/helloworld.git" >> "feeds.conf.default"
-        sed -i "/ucl upx/d" tools/Makefile
-        sed -i "/upx\/compile/d" tools/Makefile
-        sed -i '/tools-y += autoconf/i\tools-y += ucl upx' tools/Makefile
-        sed -i '/# builddir dependencies/a\$(curdir)/upx/compile := $(curdir)/ucl/compile' tools/Makefile
-        for i in "dns2socks" "microsocks" "ipt2socks" "pdnsd-alt" "redsocks2"; do svn checkout "https://github.com/immortalwrt/packages/trunk/net/$i" "package/helloworld/$i"; done
-        for i in "dns2socks" "microsocks" "ipt2socks" "pdnsd-alt" "redsocks2"; do svn checkout "https://github.com/immortalwrt/packages/trunk/net/$i" "package/helloworld/$i"; done
-        svn checkout https://github.com/coolsnowwolf/lede/trunk/tools/ucl tools/ucl
-        svn checkout https://github.com/coolsnowwolf/lede/trunk/tools/ucl tools/ucl
-        svn checkout https://github.com/coolsnowwolf/lede/trunk/tools/upx tools/upx
-        svn checkout https://github.com/coolsnowwolf/lede/trunk/tools/upx tools/upx
 
     - name: Update & Install feeds
       working-directory: ./openwrt
       run: |
         ./scripts/feeds update -a
         ./scripts/feeds update -a
-        ./scripts/feeds update helloworld
         ./scripts/feeds install -a
         ./scripts/feeds install -a
-        ./scripts/feeds install -a -f -p helloworld
-
-    #- name: Import external feeds - passwall
-    #  working-directory: ./openwrt
-    #  run: |
-    #    git clone https://github.com/xiaorouji/openwrt-passwall.git package/lienol
-    #    git clone "your_github_link" package/"your_folder_name"      
-
-    #- name: Import external feeds - JerryKuKu Argon
-    #  working-directory: ./openwrt
-    #  run: |
-    #    git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon-jerrykuku
 
     - name: Configuration Customization - Build_x86_64
       env:
