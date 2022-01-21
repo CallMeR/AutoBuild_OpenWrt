@@ -1,5 +1,5 @@
 # AutoBuild_OpenWrt_x86-64
-[![Build_x86_64](https://github.com/CallMeR/AutoBuild_OpenWrt_x86-64/actions/workflows/Build_OP_x86_64.yml/badge.svg?branch=main)](https://github.com/CallMeR/AutoBuild_OpenWrt_x86-64/actions/workflows/Build_OP_x86_64.yml)   
+[![x86_64](https://github.com/CallMeR/AutoBuild_OpenWrt/actions/workflows/x86_64.yml/badge.svg)](https://github.com/CallMeR/AutoBuild_OpenWrt/actions/workflows/x86_64.yml)  [![x86_64_enhanced](https://github.com/CallMeR/AutoBuild_OpenWrt/actions/workflows/x86_64_enhanced.yml/badge.svg)](https://github.com/CallMeR/AutoBuild_OpenWrt/actions/workflows/x86_64_enhanced.yml)
 
 使用官方 [OpenWrt](https://github.com/openwrt/openwrt) 仓库进行x86-64版本编译
 
