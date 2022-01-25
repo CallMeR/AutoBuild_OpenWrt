@@ -68,8 +68,11 @@ jobs:
         REPO_BRANCH: openwrt-21.02
       run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
-        cd openwrt/package
-        rm -rvf luci-theme-argon
+        cd openwrt
+        cp tools/Makefile ~/Makefile-$(date +%Y%m%d-%H%M).bak
+        cp feeds.conf.default ~/feeds.conf.default-$(date +%Y%m%d-%H%M).bak
+        rm -rvf package/luci-theme-argon
+        cd package
         git clone https://github.com/jerrykuku/luci-theme-argon.git
 
     - name: Update & Install feeds
