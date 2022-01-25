@@ -101,7 +101,7 @@ jobs:
         ./scripts/feeds install -a
         ./scripts/feeds install -a -f -p helloworld
 
-    - name: Configuration Customization - Build_x86_64_enhanced
+    - name: Configuration Customization - x86_64_enhanced
       env:
         CONFIG_FILE: 'x86_64_enhanced.config'
       run: |
