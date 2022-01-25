@@ -68,7 +68,9 @@ jobs:
         REPO_BRANCH: openwrt-21.02
       run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
-        cd openwrt
+        cd openwrt/package
+        rm -rvf luci-theme-argon
+        git clone https://github.com/jerrykuku/luci-theme-argon.git
 
     - name: Update & Install feeds
       working-directory: ./openwrt
