@@ -71,7 +71,10 @@ jobs:
         cd openwrt
         cp tools/Makefile ~/Makefile-$(date +%Y%m%d-%H%M).bak
         cp feeds.conf.default ~/feeds.conf.default-$(date +%Y%m%d-%H%M).bak
-        rm -rvf package/luci-theme-argon
+
+    - name: Add Helloworld
+      working-directory: ./openwrt
+      run: |
         rm -rvf package/helloworld
         rm -rvf tools/ucl
         rm -rvf tools/upx
@@ -88,6 +91,11 @@ jobs:
         svn checkout https://github.com/coolsnowwolf/lede/trunk/tools/ucl tools/ucl
         svn checkout https://github.com/coolsnowwolf/lede/trunk/tools/upx tools/upx
         svn checkout https://github.com/coolsnowwolf/lede/trunk/tools/upx tools/upx
+
+    - name: Add Argon Theme
+      working-directory: ./openwrt
+      run: |
+        rm -rvf package/luci-theme-argon
         cd package
         git clone https://github.com/jerrykuku/luci-theme-argon.git
 
@@ -108,7 +116,7 @@ jobs:
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x ./customize.sh && ./customize.sh
         cd openwrt && make defconfig
-        
+
     - name: Download package
       working-directory: ./openwrt
       run: |
