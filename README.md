@@ -10,5 +10,5 @@ Hereby thank esirplayground for his amazing job: https://github.com/esirplaygrou
 默认 LAN IP 地址：10.0.0.1  
 强化了 CLI 使用的一些组件，比如 iper3 等  
 增加了 vmxnet3 的驱动支持  
-目前在使用 Hyper-V，默认关闭了 ESXi 的 vm-tool，和 PVE 的 qemu-ga
+目前在使用 Hyper-V，默认关闭了 ESXi 的 vm-tool，和 PVE 的 qemu-ga  
 不过通常情况下不启用 Agent 的 Guest VM 也能正常运行
